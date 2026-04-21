@@ -18,8 +18,14 @@ async function getRecordByUserKey(userKey) {
   }
 
   const db = wx.cloud.database()
-  const { data } = await db.collection(config.collections.examRecord).where({ userKey }).limit(1).get()
-  return data[0] || null
+  try {
+    const { data } = await db.collection(config.collections.examRecord).doc(userKey).get()
+    return data || null
+  } catch (error) {
+    const notFound = String(error.errMsg || '').includes('document.get:fail')
+    if (notFound) return null
+    throw error
+  }
 }
 
 async function submitExamRecord(payload) {

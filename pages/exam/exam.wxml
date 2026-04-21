@@ -1,19 +1,41 @@
 <view class="container exam-page">
   <view class="card">
-    <view class="progress">题目进度：{{progressText}}</view>
+    <view class="progress-main">当前题号：{{progressText}}</view>
+    <view class="progress-sub">
+      <text>已答 {{answeredCount}} 题</text>
+      <text>未答 {{unansweredCount}} 题</text>
+      <text>总题数 {{totalQuestions}} 题</text>
+    </view>
+
+    <view class="card-trigger" bindtap="toggleAnswerCard">答题卡</view>
+
+    <view class="answer-card" wx:if="{{showAnswerCard}}">
+      <view
+        class="answer-no {{currentIndex===index ? 'current' : ''}} {{answerMap[item.id]!==undefined ? 'answered' : 'unanswered'}}"
+        wx:for="{{questions}}"
+        wx:key="id"
+        data-index="{{index}}"
+        bindtap="goQuestion"
+      >
+        {{item.id}}
+      </view>
+    </view>
 
     <view class="question-box">
       <view class="question-text">{{questions[currentIndex].id}}. {{questions[currentIndex].question}}</view>
 
       <view class="option-list">
-        <block wx:for="{{questions[currentIndex].options}}" wx:key="index">
-          <view class="option-item {{answerMap[questions[currentIndex].id]===index ? 'active' : ''}}" data-qid="{{questions[currentIndex].id}}" data-index="{{index}}" bindtap="onPickOption">
-            <text class="option-label">
-              {{questions[currentIndex].type === 'single' ? (index===0?'A':index===1?'B':'C') : item}}
-            </text>
-            <text class="option-text">{{questions[currentIndex].type === 'single' ? item.slice(3) : item}}</text>
-          </view>
-        </block>
+        <view
+          class="option-item {{answerMap[questions[currentIndex].id]===index ? 'active' : ''}}"
+          wx:for="{{questions[currentIndex].options}}"
+          wx:key="index"
+          data-qid="{{questions[currentIndex].id}}"
+          data-index="{{index}}"
+          bindtap="onPickOption"
+        >
+          <text class="option-label">{{index===0?'A':index===1?'B':index===2?'C':'D'}}</text>
+          <text class="option-text">{{questions[currentIndex].type==='single' ? item.slice(3) : item}}</text>
+        </view>
       </view>
     </view>
 

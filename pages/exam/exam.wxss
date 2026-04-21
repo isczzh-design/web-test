@@ -2,9 +2,63 @@
   padding-bottom: 180rpx;
 }
 
-.progress {
-  font-size: 26rpx;
+.progress-main {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #111827;
+}
+
+.progress-sub {
+  margin-top: 12rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
   color: #6b7280;
+  font-size: 24rpx;
+}
+
+.card-trigger {
+  margin-top: 18rpx;
+  display: inline-block;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  border-radius: 10rpx;
+  padding: 8rpx 20rpx;
+  font-size: 24rpx;
+}
+
+.answer-card {
+  margin-top: 18rpx;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12rpx;
+}
+
+.answer-no {
+  text-align: center;
+  border-radius: 10rpx;
+  padding: 12rpx 0;
+  border: 1px solid #d1d5db;
+  font-size: 24rpx;
+  background: #fff;
+}
+
+.answer-no.unanswered {
+  background: #fff;
+  border-color: #d1d5db;
+  color: #6b7280;
+}
+
+.answer-no.answered {
+  background: #eef2ff;
+  border-color: #6366f1;
+  color: #3730a3;
+}
+
+.answer-no.current {
+  background: #111827;
+  border-color: #111827;
+  color: #fff;
 }
 
 .question-box {
@@ -13,8 +67,10 @@
 
 .question-text {
   font-size: 32rpx;
-  line-height: 1.6;
+  line-height: 1.7;
   font-weight: 500;
+  white-space: normal;
+  word-break: break-all;
 }
 
 .option-list {
@@ -23,11 +79,12 @@
 
 .option-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 16rpx;
   border-radius: 14rpx;
   border: 1px solid #e5e7eb;
   padding: 18rpx;
+  background: #fff;
 }
 
 .option-item.active {
@@ -36,12 +93,17 @@
 }
 
 .option-label {
-  width: 40rpx;
+  width: 46rpx;
   font-weight: 600;
+  color: #111827;
+  flex-shrink: 0;
 }
 
 .option-text {
   flex: 1;
+  white-space: normal;
+  word-break: break-all;
+  line-height: 1.6;
 }
 
 .nav-row {

@@ -1,4 +1,4 @@
-const { validatePhone, buildUserKey } = require('../../utils/index')
+const { validatePhone, buildUserKey, normalizeProfile } = require('../../utils/index')
 const { getRecordByUserKey } = require('../../utils/service')
 
 Page({
@@ -29,11 +29,7 @@ Page({
   async onSaveProfile() {
     if (this.data.loading) return
 
-    const form = {
-      partition: this.data.form.partition.trim(),
-      name: this.data.form.name.trim(),
-      phone: this.data.form.phone.trim()
-    }
+    const form = normalizeProfile(this.data.form)
 
     if (!form.partition || !form.name || !form.phone) {
       wx.showToast({ title: '请完整填写信息', icon: 'none' })

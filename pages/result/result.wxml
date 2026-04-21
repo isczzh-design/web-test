@@ -3,17 +3,43 @@
 
   <view class="card">
     <view class="title">答题结果</view>
-    <view class="summary">姓名：{{record.name}}</view>
-    <view class="summary">分区：{{record.partition}}</view>
-    <view class="summary">电话：{{record.phone}}</view>
-    <view class="summary score">总分：{{record.score}} / {{record.totalScore}}</view>
-    <view class="summary">提交时间：{{record.submittedAt}}</view>
+    <view class="summary-row">
+      <view class="summary-item">
+        <text class="label">总分</text>
+        <text class="value">{{record.score}} / {{record.totalScore}}</text>
+      </view>
+      <view class="summary-item">
+        <text class="label">总题数</text>
+        <text class="value">{{record.totalQuestions}}</text>
+      </view>
+      <view class="summary-item">
+        <text class="label">答对</text>
+        <text class="value ok">{{record.correctCount}}</text>
+      </view>
+      <view class="summary-item">
+        <text class="label">答错</text>
+        <text class="value bad">{{record.wrongCount}}</text>
+      </view>
+      <view class="summary-item">
+        <text class="label">正确率</text>
+        <text class="value">{{record.accuracy}}%</text>
+      </view>
+      <view class="summary-item">
+        <text class="label">提交时间</text>
+        <text class="value">{{record.submittedAt}}</text>
+      </view>
+    </view>
+
+    <view class="user-line">姓名：{{record.name}}</view>
+    <view class="user-line">分区：{{record.partition}}</view>
+    <view class="user-line">电话：{{record.phone}}</view>
+    <view class="user-line">试卷：{{record.paperTitle}}（{{record.paperVersion || 'v1'}}）</view>
   </view>
 
   <view class="card detail-card" wx:for="{{record.detailList}}" wx:key="id">
     <view class="q-title">{{item.id}}. {{item.question}}</view>
-    <view class="line">你的答案：{{item.userAnswer || '未作答'}}</view>
-    <view class="line">正确答案：{{item.answer}}</view>
-    <view class="line {{item.correct ? 'ok' : 'bad'}}">结果：{{item.correct ? '答对' : '答错'}}</view>
+    <view class="line">用户答案：{{item.userAnswerDisplay || '未作答'}}</view>
+    <view class="line">正确答案：{{item.answerDisplay}}</view>
+    <view class="line {{item.correct ? 'ok' : 'bad'}}">是否答对：{{item.correct ? '是' : '否'}}</view>
   </view>
 </view>

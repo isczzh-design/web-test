@@ -14,24 +14,52 @@ exports.main = async (event) => {
   const submitLockCol = collections?.submitLock || 'submit_lock'
 
   try {
-    // 第一层：加锁，避免连续点击多次提交
+    // 第一层：锁定同一身份重复并发提交（userKey 作为文档 _id）
     await db.collection(submitLockCol).add({
       data: {
+        _id: payload.userKey,
         userKey: payload.userKey,
         createdAt: new Date()
       }
     })
 
-    // 第二层：已提交校验
-    const existing = await db.collection(examRecordCol).where({ userKey: payload.userKey }).limit(1).get()
-    if (existing.data.length) {
+    // 第二层：同一身份是否已有记录（后端再次校验）
+    const existing = await db.collection(examRecordCol).doc(payload.userKey).get()
+    if (existing.data) {
       return { success: false, code: 'DUPLICATE_SUBMIT', message: '用户已提交' }
     }
 
-    await db.collection(examRecordCol).add({ data: payload })
+    // 第三层：提交记录使用 userKey 作为 _id，数据库层强制唯一
+    await db.collection(examRecordCol).add({
+      data: {
+        _id: payload.userKey,
+        ...payload
+      }
+    })
+
     return { success: true, data: payload }
   } catch (err) {
     const duplicate = String(err.errMsg || '').includes('duplicate')
+    const notFound = String(err.errMsg || '').includes('document.get:fail')
+    if (notFound) {
+      try {
+        await db.collection(examRecordCol).add({
+          data: {
+            _id: payload.userKey,
+            ...payload
+          }
+        })
+        return { success: true, data: payload }
+      } catch (error) {
+        const isDuplicate = String(error.errMsg || '').includes('duplicate')
+        return {
+          success: false,
+          code: isDuplicate ? 'DUPLICATE_KEY' : 'SUBMIT_FAIL',
+          message: error.errMsg || '提交失败'
+        }
+      }
+    }
+
     return {
       success: false,
       code: duplicate ? 'DUPLICATE_KEY' : 'SUBMIT_FAIL',
