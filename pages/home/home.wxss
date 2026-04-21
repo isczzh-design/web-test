@@ -1,0 +1,16 @@
+.info-list {
+  margin-top: 24rpx;
+  border-radius: 14rpx;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.info-item {
+  padding: 18rpx 20rpx;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 28rpx;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}

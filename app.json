@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/home/home",
+    "pages/exam/exam",
+    "pages/result/result"
+  ],
+  "window": {
+    "navigationBarTitleText": "三级安全教育答题系统",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f6f8"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

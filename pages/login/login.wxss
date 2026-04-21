@@ -1,0 +1,19 @@
+.form-item {
+  margin-top: 24rpx;
+}
+
+.label {
+  display: block;
+  margin-bottom: 10rpx;
+  font-size: 26rpx;
+  color: #4b5563;
+}
+
+.input {
+  height: 84rpx;
+  border: 1px solid #e5e7eb;
+  border-radius: 14rpx;
+  padding: 0 22rpx;
+  font-size: 30rpx;
+  background: #fff;
+}

@@ -1,0 +1,29 @@
+<view class="container exam-page">
+  <view class="card">
+    <view class="progress">题目进度：{{progressText}}</view>
+
+    <view class="question-box">
+      <view class="question-text">{{questions[currentIndex].id}}. {{questions[currentIndex].question}}</view>
+
+      <view class="option-list">
+        <block wx:for="{{questions[currentIndex].options}}" wx:key="index">
+          <view class="option-item {{answerMap[questions[currentIndex].id]===index ? 'active' : ''}}" data-qid="{{questions[currentIndex].id}}" data-index="{{index}}" bindtap="onPickOption">
+            <text class="option-label">
+              {{questions[currentIndex].type === 'single' ? (index===0?'A':index===1?'B':'C') : item}}
+            </text>
+            <text class="option-text">{{questions[currentIndex].type === 'single' ? item.slice(3) : item}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="nav-row">
+      <button class="nav-btn" disabled="{{currentIndex===0}}" bindtap="onPrev">上一题</button>
+      <button class="nav-btn" disabled="{{currentIndex===questions.length-1}}" bindtap="onNext">下一题</button>
+    </view>
+  </view>
+
+  <view class="submit-wrap">
+    <button class="primary-btn" loading="{{submitting}}" disabled="{{submitting}}" bindtap="onSubmit">提交试卷</button>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="card">
+    <view class="title">三级安全教育答题系统</view>
+    <view class="sub-title">请认真阅读说明后开始答题</view>
+
+    <view class="info-list">
+      <view class="info-item">本试卷共 {{totalQuestions}} 题</view>
+      <view class="info-item">每题 5 分</view>
+      <view class="info-item">满分 {{totalScore}} 分</view>
+      <view class="info-item">每人仅可作答一次</view>
+      <view class="info-item">提交后可查看正确答案</view>
+    </view>
+
+    <button class="primary-btn" bindtap="startExam">开始答题</button>
+  </view>
+</view>
