@@ -1,0 +1,133 @@
+.exam-page {
+  padding-bottom: 180rpx;
+}
+
+.progress-main {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #111827;
+}
+
+.progress-sub {
+  margin-top: 12rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  color: #6b7280;
+  font-size: 24rpx;
+}
+
+.card-trigger {
+  margin-top: 18rpx;
+  display: inline-block;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  border-radius: 10rpx;
+  padding: 8rpx 20rpx;
+  font-size: 24rpx;
+}
+
+.answer-card {
+  margin-top: 18rpx;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12rpx;
+}
+
+.answer-no {
+  text-align: center;
+  border-radius: 10rpx;
+  padding: 12rpx 0;
+  border: 1px solid #d1d5db;
+  font-size: 24rpx;
+  background: #fff;
+}
+
+.answer-no.unanswered {
+  background: #fff;
+  border-color: #d1d5db;
+  color: #6b7280;
+}
+
+.answer-no.answered {
+  background: #eef2ff;
+  border-color: #6366f1;
+  color: #3730a3;
+}
+
+.answer-no.current {
+  background: #111827;
+  border-color: #111827;
+  color: #fff;
+}
+
+.question-box {
+  margin-top: 20rpx;
+}
+
+.question-text {
+  font-size: 32rpx;
+  line-height: 1.7;
+  font-weight: 500;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.option-list {
+  margin-top: 24rpx;
+}
+
+.option-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+  border-radius: 14rpx;
+  border: 1px solid #e5e7eb;
+  padding: 18rpx;
+  background: #fff;
+}
+
+.option-item.active {
+  border-color: #111827;
+  background: #f3f4f6;
+}
+
+.option-label {
+  width: 46rpx;
+  font-weight: 600;
+  color: #111827;
+  flex-shrink: 0;
+}
+
+.option-text {
+  flex: 1;
+  white-space: normal;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+.nav-row {
+  margin-top: 30rpx;
+  display: flex;
+  gap: 20rpx;
+}
+
+.nav-btn {
+  flex: 1;
+  border-radius: 12rpx;
+  border: 1px solid #d1d5db;
+  background: #fff;
+}
+
+.submit-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 18rpx 32rpx calc(18rpx + env(safe-area-inset-bottom));
+  background: rgba(245, 246, 248, 0.96);
+}
+
+.submit-wrap .primary-btn {
+  margin-top: 0;
+}

@@ -1,0 +1,62 @@
+.tip {
+  margin: 4rpx 0 22rpx;
+  padding: 18rpx;
+  border-radius: 12rpx;
+  background: #fff7ed;
+  color: #c2410c;
+  font-size: 26rpx;
+}
+
+.summary-row {
+  margin-top: 16rpx;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  padding: 12rpx 0;
+}
+
+.summary-item .label {
+  color: #6b7280;
+}
+
+.summary-item .value {
+  color: #111827;
+  font-weight: 500;
+}
+
+.user-line {
+  margin-top: 12rpx;
+  color: #374151;
+}
+
+.detail-card {
+  margin-top: 20rpx;
+}
+
+.q-title {
+  font-size: 30rpx;
+  line-height: 1.6;
+  font-weight: 500;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.line {
+  margin-top: 10rpx;
+  color: #4b5563;
+  line-height: 1.5;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.ok {
+  color: #15803d;
+}
+
+.bad {
+  color: #b91c1c;
+}

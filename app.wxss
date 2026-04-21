@@ -1,0 +1,47 @@
+page {
+  background: #f5f6f8;
+  color: #1f2937;
+  font-size: 30rpx;
+}
+
+.container {
+  box-sizing: border-box;
+  padding: 32rpx;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  box-shadow: 0 6rpx 20rpx rgba(15, 23, 42, 0.06);
+}
+
+.title {
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #111827;
+}
+
+.sub-title {
+  margin-top: 12rpx;
+  color: #6b7280;
+  font-size: 26rpx;
+}
+
+.primary-btn {
+  margin-top: 28rpx;
+  background: #111827;
+  color: #ffffff;
+  border-radius: 14rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  font-size: 30rpx;
+}
+
+.primary-btn[disabled] {
+  opacity: 0.55;
+}
+
+.text-muted {
+  color: #6b7280;
+}

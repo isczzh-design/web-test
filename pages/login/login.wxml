@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="card">
+    <view class="title">员工身份登记</view>
+    <view class="sub-title">首次进入请完善信息后开始答题</view>
+
+    <view class="form-item">
+      <text class="label">分区</text>
+      <input class="input" placeholder="请输入分区" value="{{form.partition}}" data-key="partition" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">姓名</text>
+      <input class="input" placeholder="请输入姓名" value="{{form.name}}" data-key="name" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">电话</text>
+      <input class="input" type="number" maxlength="11" placeholder="请输入手机号" value="{{form.phone}}" data-key="phone" bindinput="onInput" />
+    </view>
+
+    <button class="primary-btn" loading="{{loading}}" disabled="{{loading}}" bindtap="onSaveProfile">保存并继续</button>
+  </view>
+</view>

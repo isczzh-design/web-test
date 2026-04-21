@@ -1,0 +1,19 @@
+{
+  "description": "三级安全教育答题系统",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.6.4",
+  "appid": "touristappid",
+  "projectname": "safe-education-quiz",
+  "simulatorType": "wechat",
+  "condition": {}
+}
