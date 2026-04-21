@@ -1,0 +1,19 @@
+<view class="container" wx:if="{{record}}">
+  <view class="tip" wx:if="{{submittedTip}}">您已完成本次答题，不可重复提交。</view>
+
+  <view class="card">
+    <view class="title">答题结果</view>
+    <view class="summary">姓名：{{record.name}}</view>
+    <view class="summary">分区：{{record.partition}}</view>
+    <view class="summary">电话：{{record.phone}}</view>
+    <view class="summary score">总分：{{record.score}} / {{record.totalScore}}</view>
+    <view class="summary">提交时间：{{record.submittedAt}}</view>
+  </view>
+
+  <view class="card detail-card" wx:for="{{record.detailList}}" wx:key="id">
+    <view class="q-title">{{item.id}}. {{item.question}}</view>
+    <view class="line">你的答案：{{item.userAnswer || '未作答'}}</view>
+    <view class="line">正确答案：{{item.answer}}</view>
+    <view class="line {{item.correct ? 'ok' : 'bad'}}">结果：{{item.correct ? '答对' : '答错'}}</view>
+  </view>
+</view>
